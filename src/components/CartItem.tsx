@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { Group, Image, Text, NumberInput, Stack, ActionIcon } from '@mantine/core';
+import { Group, Image, Text, NumberInput, ActionIcon } from '@mantine/core';
 import { IconTrash } from '@tabler/icons-react';
 import { useCartStore } from '../stores/cartStore';
 import type { CartItem as CartItemType } from '../types';
@@ -18,80 +18,68 @@ export const CartItem = memo(({ item }: CartItemProps) => {
   };
 
   return (
-    <div className="border-b border-gray-200 dark:border-gray-700 pb-4 mb-4 last:border-0 last:mb-0">
-      <div className="flex flex-col sm:flex-row gap-4">
-        <div className="flex gap-3 flex-1 min-w-0">
-          <div className="overflow-hidden rounded-xl flex-shrink-0">
-            <Image
-              src={product.image}
-              alt={product.name}
-              width={80}
-              height={80}
-              fit="cover"
-              radius="xl"
-              className="transition-transform duration-300 hover:scale-110"
-            />
-          </div>
+    <div className='flex flex-col sm:flex-row gap-4 rounded-2xl  dark:bg-gray-900 shadow-lg justify-between py-3 px-4 sm:px-5 sm:py-5 border  dark:border-gray-800'>
+      <div className='overflow-hidden rounded-xl shrink-0 w-24 h-24 sm:w-28 sm:h-28'>
+        <Image
+          src={product.image}
+          alt={product.name}
+          width={80}
+          height={80}
+          fit='cover'
+          radius='xl'
+          className='h-full w-full object-cover'
+        />
+      </div>
+      <div className='flex flex-col justify-between gap-1 sm:gap-2'>
+        <Text fw={600} size='sm' lineClamp={2}>
+          {product.name}
+        </Text>
+        <Text size='xs' c='dimmed' lineClamp={1} className='hidden sm:block'>
+          {product.description}
+        </Text>
+        <Text
+          fw={700}
+          size='sm'
+          className='bg-gradient-to-r from-blue-500 to-teal-400 bg-clip-text text-transparent'
+        >
+          ${product.price.toFixed(2)}
+        </Text>
+      </div>
+      <div className='flex flex-row sm:flex-col gap-2 sm:gap-3 items-start sm:items-end'>
+        <NumberInput
+          value={quantity}
+          onChange={handleQuantityChange}
+          min={1}
+          max={99}
+          size='sm'
+          w={70}
+          radius='xl'
+        />
 
-          <Stack gap="xs" className="flex-1 min-w-0">
-            <Text fw={600} size="sm" lineClamp={2}>
-              {product.name}
-            </Text>
-            <Text size="xs" c="dimmed" lineClamp={1} className="hidden sm:block">
-              {product.description}
-            </Text>
-            <Text 
-              fw={700} 
-              size="sm"
-              className="bg-gradient-to-r from-blue-600 to-teal-500 bg-clip-text text-transparent"
-            >
-              ${product.price.toFixed(2)}
-            </Text>
-          </Stack>
-        </div>
+        <Group gap='xs' justify='space-between' className='w-full sm:w-auto'>
+          <Text
+            fw={700}
+            size='sm'
+            className='bg-gradient-to-r from-blue-500 to-teal-400 bg-clip-text text-transparent'
+          >
+            ${(product.price * quantity).toFixed(2)}
+          </Text>
 
-        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4">
-          <Group gap="xs" wrap="nowrap" className="w-full sm:w-auto">
-            <Text size="xs" c="dimmed" className="hidden sm:block">
-              Qty:
-            </Text>
-            <NumberInput
-              value={quantity}
-              onChange={handleQuantityChange}
-              min={1}
-              max={99}
-              size="sm"
-              w={70}
-              radius="xl"
-            />
-          </Group>
-
-          <Group gap="xs" justify="space-between" className="w-full sm:w-auto">
-            <Text 
-              fw={700} 
-              size="sm"
-              className="bg-gradient-to-r from-blue-600 to-teal-500 bg-clip-text text-transparent"
-            >
-              ${(product.price * quantity).toFixed(2)}
-            </Text>
-
-            <ActionIcon
-              color="red"
-              variant="light"
-              onClick={() => removeItem(product.id)}
-              aria-label="Remove item"
-              radius="xl"
-              className="transition-all hover:scale-110"
-              size="md"
-            >
-              <IconTrash size={16} />
-            </ActionIcon>
-          </Group>
-        </div>
+          <ActionIcon
+            color='red'
+            variant='light'
+            onClick={() => removeItem(product.id)}
+            aria-label='Remove item'
+            radius='xl'
+            className='transition-all hover:scale-110'
+            size='md'
+          >
+            <IconTrash size={16} />
+          </ActionIcon>
+        </Group>
       </div>
     </div>
   );
 });
 
 CartItem.displayName = 'CartItem';
-

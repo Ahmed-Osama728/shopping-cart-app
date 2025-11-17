@@ -58,7 +58,7 @@ export function ProductListing() {
   return (
     <Stack gap="lg">
       <Group justify="space-between" align="center" wrap="wrap">
-        <Text fw={700} size="xl" className="bg-gradient-to-r from-blue-600 to-teal-500 bg-clip-text text-transparent">
+        <Text fw={700} size="xl" c={'cyan'} className="bg-gradient-to-rbg-clip-text text-transparent">
           {searchQuery.trim() 
             ? `Search Results (${allProducts.length})` 
             : `Products (${allProducts.length.toLocaleString()}+)`}

@@ -43,11 +43,11 @@ export function ProductDetails() {
         Back to Products
       </Button>
 
-      <Paper 
-        shadow="xl" 
-        p="xl" 
-        radius="xl" 
-        className="backdrop-blur-sm bg-white/70 dark:bg-gray-800/70 border-0"
+      <Paper
+        shadow="xl"
+        p="xl"
+        radius="xl"
+        className="backdrop-blur-sm bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800"
       >
         <Group align="flex-start" gap="xl" wrap="wrap" className="md:flex-nowrap">
           <div className="overflow-hidden rounded-xl flex-shrink-0 w-full md:w-[400px]">
@@ -65,10 +65,10 @@ export function ProductDetails() {
           <Stack gap="md" className="flex-1">
             <Group justify="space-between" align="flex-start">
               <Stack gap="xs" className="flex-1">
-                <Text 
-                  fw={700} 
+                <Text
+                  fw={700}
                   size="xl"
-                  className="bg-gradient-to-r from-blue-600 to-teal-500 bg-clip-text text-transparent"
+                  className="bg-gradient-to-r from-blue-500 to-teal-400 bg-clip-text text-transparent"
                 >
                   {product.name}
                 </Text>
@@ -89,10 +89,10 @@ export function ProductDetails() {
               </Badge>
             </Group>
 
-            <Text 
-              fw={700} 
+            <Text
+              fw={700}
               size="2rem"
-              className="bg-gradient-to-r from-blue-600 to-teal-500 bg-clip-text text-transparent"
+              className="bg-gradient-to-r from-blue-500 to-teal-400 bg-clip-text text-transparent"
             >
               ${product.price.toFixed(2)}
             </Text>

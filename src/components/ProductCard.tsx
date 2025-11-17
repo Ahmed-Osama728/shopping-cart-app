@@ -13,7 +13,7 @@ export const ProductCard = memo(({ product }: ProductCardProps) => {
       shadow="md"
       padding="lg"
       radius="xl"
-      className="h-full flex flex-col backdrop-blur-sm bg-white/70 dark:bg-gray-800/70 border-0 hover:shadow-xl hover:scale-[1.02] transition-all duration-300 hover:bg-white/90 dark:hover:bg-gray-800/90"
+      className="h-full flex flex-col backdrop-blur-sm bg-white dark:bg-gray-900  hover:shadow-xl hover:scale-[1.02] transition-all duration-300 hover:bg-white dark:hover:bg-gray-900"
     >
       <Card.Section>
         <Link to={`/product/${product.id}`}>
@@ -62,10 +62,10 @@ export const ProductCard = memo(({ product }: ProductCardProps) => {
         </Badge>
 
         <Group justify="space-between" mt="auto">
-          <Text 
-            fw={700} 
+          <Text
+            fw={700}
             size="xl"
-            className="bg-gradient-to-r from-blue-600 to-teal-500 bg-clip-text text-transparent"
+            className="bg-gradient-to-r from-blue-500 to-teal-400 bg-clip-text text-transparent"
           >
             ${product.price.toFixed(2)}
           </Text>

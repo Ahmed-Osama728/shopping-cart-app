@@ -14,21 +14,22 @@ export function Layout({ children }: LayoutProps) {
   const { colorScheme, toggleColorScheme } = useTheme();
 
   return (
-    <AppShell header={{ height: 70 }} padding="md">
+    <AppShell header={{ height: 80 }} padding="md">
       <AppShell.Header className="backdrop-blur-md bg-white/80 dark:bg-gray-900/80 border-b border-gray-200 dark:border-gray-700 shadow-sm">
-        <Container size="xl" h="100%">
-          <div className="flex flex-row items-center justify-between w-full h-full px-2 sm:px-4 gap-2 sm:gap-4">
-            <Link to="/" className="no-underline flex-shrink-0">
+        <Container  h="100%" maw="100%">
+          <div className="flex flex-row flex-wrap items-center justify-center w-full h-full px-2 sm:px-4 sm:justify-between gap-2 sm:gap-4">
+            <Link to="/" className="no-underline shrink-0">
               <Text 
                 fw={700} 
                 size="lg"
-                className="text-base sm:text-xl bg-gradient-to-r from-blue-600 via-teal-500 to-cyan-400 bg-clip-text text-transparent"
+                c={'cyan'}
+                className="text-base sm:text-xl bg-linear-to-rbg-clip-text text-transparent"
               >
                 Shopping Cart App
               </Text>
             </Link>
 
-            <div className="flex items-center gap-1 sm:gap-3 flex-shrink-0">
+            <div className="flex items-center gap-1 sm:gap-3 shrink-0">
               <Button
                 component={Link}
                 to="/"
@@ -79,8 +80,8 @@ export function Layout({ children }: LayoutProps) {
         </Container>
       </AppShell.Header>
 
-      <AppShell.Main className="bg-gradient-to-br from-gray-50 via-blue-50/30 to-teal-50/30 dark:from-gray-950 dark:via-blue-950/30 dark:to-teal-950/30 min-h-screen">
-        <Container size="xl">{children}</Container>
+      <AppShell.Main className="min-h-screen">
+        <Container maw="100%">{children}</Container>
       </AppShell.Main>
     </AppShell>
   );

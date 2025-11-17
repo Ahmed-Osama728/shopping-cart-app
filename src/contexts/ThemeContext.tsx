@@ -29,6 +29,26 @@ function ThemeProviderInner({ children }: { children: ReactNode }) {
 
   const normalizedColorScheme = colorScheme === 'auto' ? 'light' : colorScheme;
 
+  useEffect(() => {
+    const root = document.documentElement;
+    const body = document.body;
+
+    if (normalizedColorScheme === 'dark') {
+      root.classList.add('dark');
+      body.style.backgroundColor = '#05060d';
+      body.style.color = '#f8fafc';
+    } else {
+      root.classList.remove('dark');
+      body.style.backgroundColor = '#f4f6fb';
+      body.style.color = '#111827';
+    }
+
+    return () => {
+      body.style.backgroundColor = '';
+      body.style.color = '';
+    };
+  }, [normalizedColorScheme]);
+
   return (
     <ThemeContext.Provider value={{ colorScheme: normalizedColorScheme, toggleColorScheme }}>
       {children}

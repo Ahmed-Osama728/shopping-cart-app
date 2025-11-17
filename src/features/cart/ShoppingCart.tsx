@@ -52,10 +52,10 @@ export function ShoppingCart() {
   return (
     <Stack gap="lg">
       <Group justify="space-between" align="center" wrap="wrap" gap="sm">
-        <Text 
-          fw={700} 
+        <Text
+          fw={700}
           size="lg"
-          className="text-lg sm:text-xl bg-gradient-to-r from-blue-600 to-teal-500 bg-clip-text text-transparent"
+          className="text-lg sm:text-xl bg-gradient-to-r from-blue-500 to-teal-400 bg-clip-text text-transparent"
         >
           Shopping Cart ({items.length} {items.length === 1 ? 'item' : 'items'})
         </Text>
@@ -72,11 +72,11 @@ export function ShoppingCart() {
         </Button>
       </Group>
 
-      <Paper 
-        shadow="md" 
+      <Paper
+        shadow="md"
         p="lg"
         radius="xl"
-        className="backdrop-blur-sm bg-white/70 dark:bg-gray-800/70 border-0 p-4 sm:p-6"
+        className="backdrop-blur-sm bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 p-4 sm:p-6"
       >
         <Stack gap="md">
           {items.map((item) => (
@@ -85,11 +85,11 @@ export function ShoppingCart() {
         </Stack>
       </Paper>
 
-      <Paper 
-        shadow="xl" 
+      <Paper
+        shadow="xl"
         p="xl"
         radius="xl"
-        className="backdrop-blur-sm bg-white/70 dark:bg-gray-800/70 border-0 p-4 sm:p-6"
+        className="backdrop-blur-sm bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 p-4 sm:p-6"
       >
         <Stack gap="md">
           <Group justify="space-between">
@@ -107,10 +107,10 @@ export function ShoppingCart() {
             <Text size="xl" fw={700}>
               Total:
             </Text>
-            <Text 
-              size="xl" 
+            <Text
+              size="xl"
               fw={700}
-              className="bg-gradient-to-r from-blue-600 to-teal-500 bg-clip-text text-transparent"
+              className="bg-gradient-to-r from-blue-500 to-teal-400 bg-clip-text text-transparent"
             >
               ${totalPrice.toFixed(2)}
             </Text>
