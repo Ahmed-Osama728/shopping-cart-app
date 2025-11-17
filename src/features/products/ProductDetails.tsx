@@ -1,5 +1,5 @@
 import { useParams, useNavigate } from 'react-router-dom';
-import { Stack, Image, Text, Button, Group, Badge, Rating, Paper, Alert } from '@mantine/core';
+import { Stack, Image, Text, Button, Group, Badge, Rating, Paper, Alert, AspectRatio } from '@mantine/core';
 import { notifications } from '@mantine/notifications';
 import { IconArrowLeft, IconShoppingCart, IconCheck } from '@tabler/icons-react';
 import { useProduct } from '../../hooks/useProducts';
@@ -50,17 +50,19 @@ export function ProductDetails() {
         className="backdrop-blur-sm bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800"
       >
         <Group align="flex-start" gap="xl" wrap="wrap" className="md:flex-nowrap">
-          <div className="overflow-hidden rounded-xl flex-shrink-0 w-full md:w-[400px]">
+          <AspectRatio
+            ratio={1}
+            className="overflow-hidden rounded-xl flex-shrink-0 w-full md:w-[400px] bg-gray-100 dark:bg-gray-800"
+          >
             <Image
               src={product.image}
               alt={product.name}
-              w={400}
-              h={400}
               fit="cover"
               radius="xl"
               className="transition-transform duration-300 hover:scale-105"
+              loading="lazy"
             />
-          </div>
+          </AspectRatio>
 
           <Stack gap="md" className="flex-1">
             <Group justify="space-between" align="flex-start">

@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { Card, Image, Text, Badge, Group, Stack, Button, Rating } from '@mantine/core';
+import { Card, Image, Text, Badge, Group, Stack, Button, Rating, AspectRatio } from '@mantine/core';
 import { Link } from 'react-router-dom';
 import type { Product } from '../types';
 
@@ -17,15 +17,18 @@ export const ProductCard = memo(({ product }: ProductCardProps) => {
     >
       <Card.Section>
         <Link to={`/product/${product.id}`}>
-          <div className="overflow-hidden rounded-t-xl">
+          <AspectRatio
+            ratio={4 / 3}
+            className="overflow-hidden rounded-t-xl bg-gray-100 dark:bg-gray-800"
+          >
             <Image
               src={product.image}
               alt={product.name}
-              height={200}
               fit="cover"
               className="cursor-pointer transition-transform duration-300 hover:scale-110"
+              loading="lazy"
             />
-          </div>
+          </AspectRatio>
         </Link>
       </Card.Section>
 

@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { Group, Image, Text, NumberInput, ActionIcon } from '@mantine/core';
+import { Group, Image, Text, NumberInput, ActionIcon, AspectRatio } from '@mantine/core';
 import { IconTrash } from '@tabler/icons-react';
 import { useCartStore } from '../stores/cartStore';
 import type { CartItem as CartItemType } from '../types';
@@ -19,17 +19,19 @@ export const CartItem = memo(({ item }: CartItemProps) => {
 
   return (
     <div className='flex flex-col sm:flex-row gap-4 rounded-2xl  dark:bg-gray-900 shadow-lg justify-between py-3 px-4 sm:px-5 sm:py-5 border  dark:border-gray-800'>
-      <div className='overflow-hidden rounded-xl shrink-0 w-24 h-24 sm:w-28 sm:h-28'>
+      <AspectRatio
+        ratio={1}
+        className='overflow-hidden rounded-xl shrink-0 w-24 sm:w-28 bg-gray-100 dark:bg-gray-800'
+      >
         <Image
           src={product.image}
           alt={product.name}
-          width={80}
-          height={80}
           fit='cover'
           radius='xl'
           className='h-full w-full object-cover'
+          loading='lazy'
         />
-      </div>
+      </AspectRatio>
       <div className='flex flex-col justify-between gap-1 sm:gap-2'>
         <Text fw={600} size='sm' lineClamp={2}>
           {product.name}
