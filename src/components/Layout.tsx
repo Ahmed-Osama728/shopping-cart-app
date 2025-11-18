@@ -50,8 +50,11 @@ export function Layout({ children }: LayoutProps) {
                 size="sm"
                 radius="xl"
                 className="transition-all hover:scale-105 text-xs sm:text-sm px-2 sm:px-4"
+                aria-label="Open shopping cart"
               >
-                <span className="hidden sm:inline">Cart</span>
+                <span className="hidden sm:inline" aria-hidden="true">
+                  Cart
+                </span>
                 {totalItems > 0 && (
                   <Badge
                     color="red"
@@ -71,6 +74,7 @@ export function Layout({ children }: LayoutProps) {
                   radius="xl"
                   onClick={toggleColorScheme}
                   className="transition-all hover:scale-110"
+                  aria-label={colorScheme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
                 >
                   {colorScheme === 'dark' ? <IconSun size={18} /> : <IconMoon size={18} />}
                 </ActionIcon>

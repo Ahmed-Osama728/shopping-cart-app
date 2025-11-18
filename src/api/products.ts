@@ -49,7 +49,6 @@ export const productsApi = {
 
   searchProducts: (query: string): Promise<Product[]> => {
     return new Promise((resolve) => {
-      // Use requestIdleCallback or setTimeout for non-blocking search
       setTimeout(() => {
         const lowerQuery = query.toLowerCase().trim();
         if (!lowerQuery) {
@@ -60,13 +59,11 @@ export const productsApi = {
         const results: Product[] = [];
         const products = getProducts(); // Use cached products instead of generating
         
-        // Early exit if query is too short
         if (lowerQuery.length < 2) {
           resolve([]);
           return;
         }
         
-        // Limit search to first 5000 products for better performance
         const searchLimit = Math.min(5000, products.length);
         for (let i = 0; i < searchLimit; i++) {
           const product = products[i];
@@ -81,7 +78,7 @@ export const productsApi = {
         }
         
         resolve(results);
-      }, 150); // Reduced delay
+      }, 150); 
     });
   },
 };

@@ -10,7 +10,6 @@ import { ThemeProvider } from './contexts/ThemeContext';
 import '@mantine/core/styles.css';
 import '@mantine/notifications/styles.css';
 
-// Lazy load route components for code splitting
 const ProductListing = lazy(() => import('./features/products/ProductListing').then(module => ({ default: module.ProductListing })));
 const ProductDetails = lazy(() => import('./features/products/ProductDetails').then(module => ({ default: module.ProductDetails })));
 const ShoppingCart = lazy(() => import('./features/cart/ShoppingCart').then(module => ({ default: module.ShoppingCart })));
