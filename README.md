@@ -1,73 +1,68 @@
-# React + TypeScript + Vite
+# Shopping Cart App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A polished shopping experience for browsing, searching, and purchasing modern lifestyle products. The UI is built with Mantine and Tailwind utility classes, leverages React Query for async data flows, and uses Zustand for a lightweight in-memory cart. Code-splitting, infinite scrolling, and reserved media space keep the experience snappy and stable.
 
-Currently, two official plugins are available:
+> Explore the live experience locally by running the dev server, then visit `http://localhost:5173`.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## Features
+- **Product discovery at scale** – paginated catalog backed by `@tanstack/react-query` with on-demand fetching, infinite scroll, and cached responses.
+- **Instant search** – debounced search results (`useSearch`) provide quick filtering without reloading or leaving the page.
+- **Rich product pages** – detailed view with ratings, category badges, price highlights, and stock alerts.
+- **Persistent cart UX** – global cart state handled by Zustand: quantity editing, total calculations, and checkout feedback notifications.
+- **Responsive Mantine layout** – AppShell navigation with route-aware highlighting, cart badge counts, and light/dark theme toggle.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## Tech Stack
+- **Runtime:** React 19 + TypeScript, Vite 7
+- **UI:** Mantine Core & Notifications, Tailwind utility classes
+- **State & Data:** Zustand cart store, React Query (infinite + single queries)
+- **Routing:** React Router v7 with suspenseful lazy routes
+- **Icons & Mock data:** Tabler Icons, Faker-powered catalog generator
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Project Structure
+```
+src/
+├── components/         # UI pieces (cards, cart item, layout, loaders)
+├── features/
+│   ├── cart/           # Cart screen (list, totals, checkout modal)
+│   └── products/       # Product listing & detail pages
+├── hooks/              # Data hooks (React Query) and search helpers
+├── stores/             # Zustand cart state
+├── contexts/           # Theme provider and color scheme toggling
+├── utils/fakeData.ts   # Faker-powered product generator used by hooks
+└── api/                # Query keys and product fetch helpers
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Getting Started
+### Prerequisites
+- Node.js 18+ (tested with npm)
+- npm (bundled with Node)
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Installation
+```bash
+npm install
+```
+
+### Development server
+```bash
+npm run dev
+# open http://localhost:5173
+```
+
+### Production build
+```bash
+npm run build
+npm run preview 
+```
+
+### Linting
+```bash
+npm run lint
 ```
