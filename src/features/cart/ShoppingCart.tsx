@@ -50,7 +50,7 @@ export function ShoppingCart() {
   }
 
   return (
-    <Stack gap="lg">
+    <Stack gap="lg" >
       <Group justify="space-between" align="center" wrap="wrap" gap="sm">
         <Text
           fw={700}
@@ -76,7 +76,7 @@ export function ShoppingCart() {
         shadow="md"
         p="lg"
         radius="xl"
-        className="backdrop-blur-sm bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 p-4 sm:p-6"
+        className="backdrop-blur-sm bg-white dark:bg-gray-900 p-4 sm:p-6"
       >
         <Stack gap="md">
           {items.map((item) => (
@@ -89,7 +89,7 @@ export function ShoppingCart() {
         shadow="xl"
         p="xl"
         radius="xl"
-        className="backdrop-blur-sm bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 p-4 sm:p-6"
+        className="backdrop-blur-sm bg-white dark:bg-gray-900 p-4 sm:p-6"
       >
         <Stack gap="md">
           <Group justify="space-between">

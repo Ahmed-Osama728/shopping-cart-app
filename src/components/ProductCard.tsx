@@ -19,7 +19,7 @@ export const ProductCard = memo(({ product }: ProductCardProps) => {
         <Link to={`/product/${product.id}`}>
           <AspectRatio
             ratio={4 / 3}
-            className="overflow-hidden rounded-t-xl bg-gray-100 dark:bg-gray-800"
+            className="overflow-hidden rounded-t-xl dark:bg-gray-100"
           >
             <Image
               src={product.image}
@@ -32,7 +32,7 @@ export const ProductCard = memo(({ product }: ProductCardProps) => {
         </Link>
       </Card.Section>
 
-      <Stack gap="xs" mt="md" className="flex-1">
+      <Stack gap="xs" mt="md" className="flex-1 border-none">
         <Group justify="space-between" mt="xs" mb="xs">
           <Text fw={600} lineClamp={2} className="flex-1">
             {product.name}

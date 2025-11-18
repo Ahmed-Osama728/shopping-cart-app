@@ -18,10 +18,10 @@ export const CartItem = memo(({ item }: CartItemProps) => {
   };
 
   return (
-    <div className='flex flex-col sm:flex-row gap-4 rounded-2xl  dark:bg-gray-900 shadow-lg justify-between py-3 px-4 sm:px-5 sm:py-5 border  dark:border-gray-800'>
+    <div className='flex flex-col sm:flex-row gap-4 rounded-2xl  dark:bg-gray-900 shadow-lg justify-between py-3 px-4 sm:px-5 sm:py-5'>
       <AspectRatio
         ratio={1}
-        className='overflow-hidden rounded-xl shrink-0 w-24 sm:w-28 bg-gray-100 dark:bg-gray-800'
+        className='overflow-hidden rounded-xl shrink-0 w-24 sm:w-28 dark:bg-gray-100'
       >
         <Image
           src={product.image}

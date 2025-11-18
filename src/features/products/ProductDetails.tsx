@@ -47,12 +47,12 @@ export function ProductDetails() {
         shadow="xl"
         p="xl"
         radius="xl"
-        className="backdrop-blur-sm bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800"
+        className="backdrop-blur-sm bg-white dark:bg-gray-900 borde"
       >
         <Group align="flex-start" gap="xl" wrap="wrap" className="md:flex-nowrap">
           <AspectRatio
             ratio={1}
-            className="overflow-hidden rounded-xl flex-shrink-0 w-full md:w-[400px] bg-gray-100 dark:bg-gray-800"
+            className="overflow-hidden rounded-xl flex-shrink-0 w-full md:w-[400px] dark:bg-gray-100"
           >
             <Image
               src={product.image}
